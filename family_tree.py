@@ -161,45 +161,27 @@ class Family(object):
 
 if __name__ == '__main__':
     #Test section
-    f = Family("a")
-    f.set_children("a", ["b", "c"])
-    f.set_children("b", ["d", "e"])
-    f.set_children("c", ["f", "g"])
+    f = Family("ammar")
+    f.set_children("ammar", ["islem", "mohammed","ahmed"])
+    f.set_children("islem", ["fouad", "younes"])
+    f.set_children("ahmed", ["zein", "adem"])
 
-    f.set_children("d", ["h", "i"])
-    f.set_children("e", ["j", "k"])
-    f.set_children("f", ["l", "m"])
-    f.set_children("g", ["n", "o", "p", "q"])
+    f.set_children("adem", ["hakim", "ilyes"])
+    f.set_children("younes", ["jawed", "khaled"])
+    f.set_children("fouad", ["lamia", "mossa"])
+    f.set_children("zein", ["nouh", "obayda", "nassim", "chaker"])
 
     words = ["zeroth", "first", "second", "third", "fourth", "fifth", "non"]
 
     ## These are your test cases. 
 
     ## The first test case should print out:
-    ## 'b' is a zeroth cousin 0 removed from 'c'
-    t, r = f.cousin("b", "c")
-    print "'b' is a", words[t],"cousin", r, "removed from 'c'"
+    ## 'islem' is a zeroth cousin 0 removed from 'fouad'
+    t, r = f.cousin("islem", "fouad")
+    print "'islem' is a", words[t],"cousin", r, "removed from 'fouad'"
 
     ## For the remaining test cases, use the graph to figure out what should 
     ## be printed, and make sure that your code prints out the appropriate values.
 
-    t, r = f.cousin("d", "f")
-    print "'d' is a", words[t],"cousin", r, "removed from 'f'"
-
-    t, r = f.cousin("i", "n")
-    print "'i' is a", words[t],"cousin", r, "removed from 'n'"
-
-    t, r = f.cousin("q", "e")
-    print "'q' is a", words[t], "cousin", r, "removed from 'e'"
-
-    t, r = f.cousin("h", "c")
-    print "'h' is a", words[t], "cousin", r, "removed from 'c'"
-
-    t, r = f.cousin("h", "a")
-    print "'h' is a", words[t], "cousin", r, "removed from 'a'"
-
-    t, r = f.cousin("h", "h")
-    print "'h' is a", words[t], "cousin", r, "removed from 'h'"
-
-    t, r = f.cousin("a", "a")
-    print "'a' is a", words[t], "cousin", r, "removed from 'a'"
+    t, r = f.cousin("hakim", "khaled")
+    print "'hakim' is a", words[t],"cousin", r, "removed from 'khaled'"
