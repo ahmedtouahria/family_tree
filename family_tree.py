@@ -14,12 +14,12 @@ class Member(object):
     def __str__(self):
         return self.name    
 
-    def add_parent(self, mother):
+    def add_parent(self, father):
         """
-        mother: Member
-        Sets the parent of this node to the `mother` Member node
+        father: Member
+        Sets the parent of this node to the `father` Member node
         """
-        self.parent = mother   
+        self.parent = father   
 
     def get_parent(self):
         """
@@ -27,13 +27,13 @@ class Member(object):
         """
         return self.parent 
 
-    def is_parent(self, mother):
+    def is_parent(self, father):
         """
-        mother: Member
-        Returns: Boolean, whether or not `mother` is the 
+        father: Member
+        Returns: Boolean, whether or not `father` is the 
         parent of this Member
         """
-        return self.parent == mother  
+        return self.parent == father  
 
     def add_child(self, child):
         """
@@ -64,16 +64,16 @@ class Family(object):
         self.root = Member(founder)    
         self.names_to_nodes[founder] = self.root   
 
-    def set_children(self, mother, list_of_children):
+    def set_children(self, father, list_of_children):
         """
-        Set all children of the mother. 
+        Set all children of the father. 
 
         Keyword arguments: 
-        mother -- mother's name as a string
+        father -- father's name as a string
         list_of_children -- children names as strings
         """
         # convert name to Member node (should check for validity)
-        mom_node = self.names_to_nodes[mother]   
+        mom_node = self.names_to_nodes[father]   
         # add each child
         for c in list_of_children:           
             # create Member node for a child   
@@ -85,27 +85,26 @@ class Family(object):
             # set the parent's child
             mom_node.add_child(c_member)         
     
-    def is_parent(self, mother, kid):
+    def is_parent(self, father, kid):
         """
-        Returns True or False whether mother is parent of kid. 
-
+        Returns True or False whether father is parent of kid. 
         Keyword arguments: 
-        mother -- string of mother's name
+        father -- string of father's name
         kid -- string of kid's name
         """
-        mom_node = self.names_to_nodes[mother]
+        mom_node = self.names_to_nodes[father]
         child_node = self.names_to_nodes[kid]
         return child_node.is_parent(mom_node)   
 
-    def is_child(self, kid, mother):
+    def is_child(self, kid, father):
         """
-        Returns True or False whether kid is child of mother. 
+        Returns True or False whether kid is child of father. 
 
         Keyword arguments: 
         kid -- string of kid's name
-        mother -- string of mother's name
+        father -- string of father's name
         """        
-        mom_node = self.names_to_nodes[mother]   
+        mom_node = self.names_to_nodes[father]   
         child_node = self.names_to_nodes[kid]
         return mom_node.is_child(child_node)
 
@@ -177,11 +176,11 @@ if __name__ == '__main__':
 
     ## The first test case should print out:
     ## 'islem' is a zeroth cousin 0 removed from 'fouad'
-    t, r = f.cousin("islem", "fouad")
-    print "'islem' is a", words[t],"cousin", r, "removed from 'fouad'"
+    t, r = f.cousin("zein", "fouad")
+    print ("'zein' is a", words[t],"cousin", r, "removed from 'fouad'")
 
     ## For the remaining test cases, use the graph to figure out what should 
     ## be printed, and make sure that your code prints out the appropriate values.
 
     t, r = f.cousin("hakim", "khaled")
-    print "'hakim' is a", words[t],"cousin", r, "removed from 'khaled'"
+    print ("'hakim' is a", words[t],"cousin", r, "removed from 'khaled'")
